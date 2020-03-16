@@ -13,11 +13,13 @@ async def on_member_join(member):
 @bot.event
 async def on_member_remove(member):
     print(f'{member} has left the server.')
-     return await message.channel.send(f"{member} has left the server")
-
 
 @bot.event
 async def on_message(message) :
     if message.content.startswith ('Hello'):
        return await message.channel.send('hi ~ Meow ><')
+
+@bot.command()
+async def ping(word):
+    await word.send('Pong!')
 bot.run(tokken)
