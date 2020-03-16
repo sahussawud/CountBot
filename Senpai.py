@@ -8,9 +8,13 @@ client = commands.Bot(command_prefix='.')
 async def on_ready() :
     print("Bot online.")
 
-@client.command(pass_context=True)
+@client.command(pass_context = True)
 async def join(ctx):
     channel = ctx.message.author.voice.channel
     await channel.connect()
-
+    print("Senpai joined the voice channel")
+@client.command(pass_context = True)
+async def leave(ctx):
+    await ctx.voice_client.disconnect()
+    print("Senpai Left the voice channel")
 client.run(tokken)
